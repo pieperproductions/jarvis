@@ -83,13 +83,15 @@
                 return "My name is " + name + ".";
             } else if (question.toLowerCase().includes("purpose")) {
                 return "My purpose is " + purpose + ".";
-            } else if (question.toLowerCase().includes("created")) {
+            } else if (question.toLowerCase().includes("when were you created")) {
                 return "I was created on " + creationDate + ".";
             } else if (question.toLowerCase().includes("creator")) {
                 return "I was created by " + creator + ".";
             } else if (question.toLowerCase().includes("who created you")) {
                 return "I was created by " + creator + ".";
-            } else if (question.toLowerCase().includes("origin")) {
+            } else if (question.toLowerCase().includes("who made you")) {
+                return "I was created by " + creator + ".";
+			} else if (question.toLowerCase().includes("origin")) {
                 return "I originate from my creator's imagination.";
             } else if (question.toLowerCase().includes("introduce yourself") || question.toLowerCase().includes("about yourself")) {
                 return "I am " + name + ", a virtual assistant created by " + creator + " on " + creationDate + ". My purpose is to assist and provide information.";
@@ -101,6 +103,8 @@
                 return "My creator is " + creator + ".";
             } else if (question.toLowerCase().includes("tell me about the person who built you")) {
                 return creator + " is a skilled programmer who built me to be helpful and efficient.";
+			} else if (question.toLowerCase().includes("goodbye")) {
+                return "goodbye and thank you for talking with me";
             } else {
                 return "I'm sorry, I didn't understand that.";
             }

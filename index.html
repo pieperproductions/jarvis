@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis Chat</title>
+    <style>
+        /* Add your custom CSS styling here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        h1, p {
+            margin-bottom: 20px;
+        }
+        .key-container {
+            margin-top: 40px;
+        }
+        .key-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jarvis Chat</h1>
+        <p>Hello! I'm Jarvis. How can I assist you today?</p>
+        <div id="chat-container"></div>
+        <input type="text" id="user-input" placeholder="Your message...">
+        <button onclick="sendUserMessage()">Send</button>
+    </div>
+
+    <div class="key-container">
+        <h2>Key:</h2>
+        <div class="key-item">1. What is your name?</div>
+        <div class="key-item">2. What is your purpose?</div>
+        <div class="key-item">3. When were you created?</div>
+        <div class="key-item">4. Who created you?</div>
+        <div class="key-item">5. Can you tell me about yourself?</div>
+        <div class="key-item">6. What's your origin?</div>
+        <div class="key-item">7. Who made you?</div>
+        <div class="key-item">8. Introduce yourself.</div>
+        <div class="key-item">9. What's your backstory?</div>
+        <div class="key-item">10. Explain your creation.</div>
+        <div class="key-item">11. Who is your creator?</div>
+        <div class="key-item">12. Tell me about the person who built you.</div>
+    </div>
+
+    <script>
+        function sendUserMessage() {
+            var userInput = document.getElementById("user-input").value.trim();
+            if (userInput.toLowerCase() === "exit") {
+                document.getElementById("chat-container").innerHTML += '<p>Goodbye!</p>';
+                return;
+            }
+
+            var response = generateResponse(userInput);
+            var htmlResponse = '<p><strong>You:</strong> ' + userInput + '</p>' +
+                               '<p><strong>Jarvis:</strong> ' + response + '</p>';
+            document.getElementById("chat-container").innerHTML += htmlResponse;
+            document.getElementById("user-input").value = "";
+        }
+
+        function generateResponse(question) {
+            var name = "Jarvis";
+            var purpose = "To assist and provide information";
+            var creationDate = "April 10, 2024";
+            var creator = "Kristopher Pieper";
+
+            if (question.toLowerCase().includes("name")) {
+                return "My name is " + name + ".";
+            } else if (question.toLowerCase().includes("purpose")) {
+                return "My purpose is " + purpose + ".";
+            } else if (question.toLowerCase().includes("created")) {
+                return "I was created on " + creationDate + ".";
+            } else if (question.toLowerCase().includes("creator")) {
+                return "I was created by " + creator + ".";
+            } else if (question.toLowerCase().includes("who created you")) {
+                return "I was created by " + creator + ".";
+            } else if (question.toLowerCase().includes("origin")) {
+                return "I originate from my creator's imagination.";
+            } else if (question.toLowerCase().includes("introduce yourself") || question.toLowerCase().includes("about yourself")) {
+                return "I am " + name + ", a virtual assistant created by " + creator + " on " + creationDate + ". My purpose is to assist and provide information.";
+            } else if (question.toLowerCase().includes("backstory")) {
+                return "I don't have a backstory, as I am a product of programming.";
+            } else if (question.toLowerCase().includes("explain your creation")) {
+                return "I was created by " + creator + " to assist and provide information.";
+            } else if (question.toLowerCase().includes("who is your creator")) {
+                return "My creator is " + creator + ".";
+            } else if (question.toLowerCase().includes("tell me about the person who built you")) {
+                return creator + " is a skilled programmer who built me to be helpful and efficient.";
+            } else {
+                return "I'm sorry, I didn't understand that.";
+            }
+        }
+    </script>
+</body>
+</html>
